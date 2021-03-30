@@ -1,0 +1,126 @@
+.no-paddings {
+    padding: 0;
+}
+.carousel-control-prev, .carousel-control-next {
+    width: 47px;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 47px;
+    height: 47px;
+}
+.gray-bg {
+    background-color: $gray-bg;
+}
+.carousel-item.active {
+    display: flex;
+    justify-content: center;
+    height: 777px;
+}
+.gray-bg-dark {
+    background-color: $gray-bg-dark;
+}
+.product-info-block {
+    display: flex;
+    justify-content: center;
+}
+.product-info-block__inner {
+    width: 1140px;
+    margin-top: -64px;
+    background: $white;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    outline: 1px solid $gray-light-dark;
+    box-sizing: border-box;
+    margin-bottom: 34px;
+}
+.product-info-block__inner-center {
+    width: 641px;
+}
+.product-info-block__inner-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.product-info-block__inner-center>* {
+    display: flex;
+    box-sizing: content-box;
+    justify-content: center;
+}
+.product-info-block__title-pink {
+    font-size: 14px;
+    line-height: 17px;
+    color: $pink-color; 
+    text-transform: uppercase;
+    margin: 65px auto 0;
+}
+.product-info-block__title-grey { 
+    font-size: 18px;
+    line-height: 22px;
+    color: $gray-bg-dark;
+    font-weight: 300;
+}
+.product-info-block__info {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: $gray-bg-dark;
+    margin: 48px auto 32px;
+}
+.product-info-block__price {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+    color: $pink-color;
+}
+.product-info-block__button {
+    margin: 0 auto;
+}
+.product-info-block__line-pink {
+    width: 63px;
+    margin: 0 auto;
+    border-bottom: 3px solid $pink-color;
+    margin: 12px auto;
+}
+.product-info-block__line-grey {
+    width: 100%;
+    border-bottom: 1px solid $gray-light-dark;
+    margin: 65px auto;
+}
+.product-info-block__button {
+    margin: 48px auto 65px;
+}
+.product-info-block__button svg {
+    margin-right: 20px;
+}
+.product-info-block__button:hover path {
+    fill: $white;
+}
+.product-info-block__filter-link {
+    font-size: 14px;
+    line-height: 17px;
+    color: $gray-bg-dark;
+    text-transform: uppercase;
+}
+.product-info-block__filter-link:hover {
+    color: $pink-color;
+}
+.down-arrow {
+    margin: auto 23px auto 9px;
+}
+.featured-homepage__product-card:hover h5 {
+    color: $pink-color;
+}
+.sub_header .breadcrumb {
+    margin-right: 230px;
+}
+.breadcrumb-item {
+    text-transform: uppercase;
+}
+.breadcrumb-item:hover a{
+    color: $pink-color;
+} 
+.breadcrumb .active {
+    color: $pink-color;
+}

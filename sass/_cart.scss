@@ -1,0 +1,103 @@
+.cart_block {
+    display: flex;
+    margin: 96px 230px 130px 230px;
+}
+.cart_block__products_list {
+    width: 60%;
+}
+.cart_block__products_list-list {
+    display: flex;
+    flex-direction: column;
+}
+.cart_block__shipping_info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 130px;
+}
+.cart_block__shipping_info-form {
+    display: flex;
+    flex-direction: column;
+}
+.cart_block__products_list-item {
+    display: flex;
+    width: 655px;
+    margin-top: 40px;
+    position: relative;
+    -webkit-box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.29);
+    -moz-box-shadow:    7px 7px 25px 0px rgba(50, 50, 50, 0.29);
+    box-shadow:         7px 7px 25px 0px rgba(50, 50, 50, 0.29);
+}
+.cart_block__products_list-item:first-child {
+    margin-top: 0px;
+}
+.cart_block__product_title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #222222;
+    text-transform: uppercase;
+}
+.cart_block__product_info {
+    padding: 22px 0 0 32px;
+    width: fit-content;
+    box-sizing: border-box;
+}
+.cart_block__products_list-item .close {
+    position: absolute;
+    right: 22px;
+    top: 28px;
+}
+.cart_block__shipping_info
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+    @extend %input-type-text;
+}
+.cart_block__shipping_info
+input[type="text"]::placeholder, 
+input[type="email"]::placeholder, 
+input[type="password"]::placeholder {
+    color:#B1B1B1;
+}
+.cart_block__shipping_info .button-empty {
+    margin-top: 24px; 
+}
+.cart_block__shipping_info .form_title {
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.cart_block__total_block {
+    width: 360px;
+    background-color: #f5f5f5;
+    padding: 43px;
+    box-sizing: border-box;
+    margin-top: 58px;
+}
+.cart_block__subtotal_text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: right;
+    color: #4A4A4A;
+}
+.cart_block__total_text {
+    font-weight: 300;
+    font-size: 16px;
+    color: #222;
+    text-transform: uppercase;
+    text-align: right;
+    margin: 12px 0 21px 0;
+}
+.cart_block__checkout_link {
+    margin-top: 17px;
+    display: block;
+    width: 219px;
+    text-align: center;
+}
+.cart_block__function_block {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 72px;
+}

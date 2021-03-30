@@ -1,0 +1,150 @@
+@media (min-width: 700px) and (max-width:790px) {
+    .header {
+        padding: 0;
+        padding: 0 32px 0 32px;
+        align-items: center;
+    }
+    .main {
+        margin: 0 auto;
+        width: 768px;
+    }
+    .sub_header__title {
+        padding-left: 16px;
+    }
+    .sub_header .breadcrumb {
+        margin-right: 16px; 
+    }
+    .registration_block__loyalty_program {
+        width: 50%;
+        padding-left: 22px;
+        font-size: 16px;
+        color: #000;
+        font-weight: 300;
+    }
+    .registration_block__form {
+        width: 50%;
+        display: flex;
+        padding-left: 16px;
+        font-weight: 300;
+    }
+    .registration_block__text {
+        margin: 22px 0;
+        width: auto;
+    }
+    .subscribe_block {
+        background: url(../img/footer_bg_tablet.jpg);
+        height: 693px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .subscribe_block .single-comment {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        color: #222224;
+        margin: 0 auto;
+    }
+    .subscribe_block .single-comment p {
+        font-size: 14px;
+    }
+    .subscribe_block .subscribe-form {
+        width: auto;
+        display: flex;
+        margin: 30px auto;
+    }
+    .footer-bottom .social-networks-list {
+        margin-right: 32px;
+    }
+    .footer-bottom .copyright {
+        margin-left: 32px;
+    }
+}
+@media (min-width:275px) and (max-width:574px) {
+    .main {
+        margin: 0 auto;
+        width: 375px;
+    }
+    .header {
+        padding: 0 16px 0 16px;
+        align-items: center;
+    }
+    .sub_header {
+        flex-direction: column;
+    }
+    .sub_header .breadcrumb {
+        margin-right: 0px; 
+        margin-bottom: 30px;
+    }
+    .sub_header__title {
+        text-align: center;
+        padding: 0;
+        margin-top: 30px;
+    }
+    .registration_block{
+        flex-direction: column;
+    }
+    .registration_block__loyalty_program {
+        width: auto;
+        padding-left: 8px;
+        font-size: 16px;
+        color: #000;
+        font-weight: 300;
+        margin-top: 40px;
+    }
+    .registration_block__form {
+        width: auto;
+        display: flex;
+        padding-left: 8px;
+        font-weight: 300;
+    }
+    .subscribe_block {
+        background: url(../img/footer_bg_tablet.jpg);
+        background-size: cover;
+        height: 550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .subscribe_block .single-comment {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        color: #222224;
+        margin-top: -50px;
+    }
+    .subscribe_block .subscribe-form {
+        width: auto;
+        display: flex;
+        margin-top: 70px;
+    }
+    .footer-bottom {
+        flex-direction: column-reverse;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 150px;
+    }
+    .footer-bottom .social-networks-list {
+        margin: 0 auto;
+    }
+    .footer-bottom .copyright {
+        margin: 0 auto;
+    }
+    .featured-homepage {
+        margin: 5px;
+    }
+    .product-info-block__inner-center {
+        width: auto;
+    }
+    .down-arrow {
+        margin: auto 15px auto 9px;
+    }
+    .product-info-block__filter-link {
+        font-size: 13px;
+        line-height: 12px;
+        color: #999;
+        text-transform: uppercase;
+    }
+}

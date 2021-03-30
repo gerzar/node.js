@@ -1,0 +1,70 @@
+.registration_block {
+    background-color: $light-gray-bgc;
+    display: flex;
+    margin-top: 65px;
+    margin-bottom: 96px;
+}
+.registration_block__form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 230px;
+    font-weight: 300;
+}
+.registration_block__loyalty_program {
+    width: 70%;
+    padding-left: 130px;
+    font-size: 24px;
+    color: #000;
+    font-weight: 300;
+}
+.registration_block__title {
+    text-transform: uppercase;
+}
+.registration_block__text {
+    margin: 22px 0;
+    width: 655px;
+}
+.sex-block {
+    border: none;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.registration_block
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+    @extend %input-type-text;
+}
+.registration_block
+input[type="text"]::placeholder, 
+input[type="email"]::placeholder, 
+input[type="password"]::placeholder { 
+    color:#B1B1B1;
+}
+.tip-text {
+    margin-top: 16px;
+    margin-bottom: 39px;
+    color: #b1b1b1;
+}
+input[name="sex"] {
+    margin-right: 10px;
+}
+#female {
+    margin-left: 20px;
+}
+.registration_block__item {
+    margin-top: 17px;
+    padding-left: 43px;
+    position: relative;
+}
+.registration_block__item:before {
+    content: '';
+    width: 20px;
+    height: 16px;
+    display: block;
+    position: absolute;
+    background: url(../img/check.svg) no-repeat;
+    margin-top: 8px;
+    left: 0;
+}
