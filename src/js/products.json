@@ -1,0 +1,9 @@
+[
+{"id": 1, "title": "Jacket", "price": 52, "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.", "img": "../img/prod1.jpg", "link": "#" },
+{"id": 2, "title": "Shoes", "price": 250, "description": "Tempora sed aperiam id quo atque rem ducimus alias odit tenetur. Alias?", "img": "../img/prod2.jpg", "link": "#" },
+{"id": 3, "title": "Shorts", "price": 70, "description": "Tempora sed aperiam id quo atque rem ducimus alias odit tenetur. Alias?", "img": "../img/prod3.jpg", "link": "#"},
+{"id": 4, "title": "Pants", "price": 150, "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.", "img": "../img/prod4.jpg", "link":  "#"},
+{"id": 5, "title": "Blouse", "price": 90, "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.", "img": "../img/prod5.jpg", "link": "#"},
+{"id": 6, "title": "T-short", "price": 120, "description": "Tempora sed aperiam id quo atque rem ducimus alias odit tenetur. Alias?", "img": "../img/prod6.jpg", "link": "#" }
+
+]

@@ -1,0 +1,29 @@
+{
+  "name": "jasmin-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "devDependencies": {
+    "jasmine": "^3.7.0"
+  },
+  "scripts": {
+    "test": "jasmine",
+    "start": "node server.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerzar/node.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gerzar/node.js/issues"
+  },
+  "homepage": "https://github.com/gerzar/node.js#readme"
+}

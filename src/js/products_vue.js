@@ -1,45 +1,8 @@
-const API_URL = 'js/products.json';
+const API_URL = 'src/js/products.json';
 
-Vue.component('goods-item', { // Создание нового компонента
-	template: '<div :data-id="id" class="goods-item"><h3>{{ title }}</h3><p>{{ price }}</p></div>',
-	props: ['title', 'price', 'id'] // задаем параметры компонента
-})
-  
-Vue.component('cart', { // создание компонента корзины
-	template: `<div>
-	<button class="cart-button" @click="openCartHandler" type="button">Корзина</button>
-		<p class="close-button" @click="openCartHandler">x</p>
-	  	<div v-if="isVisibleCart" v-on:click="removeHandler">
-		<slot></slot>
-		<p><b>Итого: </b> {{commonvalue}}</p>
-	  </div>
-	</div>`,
-	data() { // данные компонента (Обязательно в виде метода!)
-	  return {
-		isVisibleCart: false
-	  }
-	},
-	props: ['commonvalue'],
-	methods: {
-	  openCartHandler() {
-		this.isVisibleCart = !this.isVisibleCart;
-	  },
-	  removeHandler(e) {
-		this.$emit('remove', e) // Генерируем пользовательское событие
-	  },
-
-	}
-})
-
-Vue.component('search', {
-	template: `<div><input class="search" @input="secondSearchHandler"> </div>`,
-	methods: {
-		secondSearchHandler(e) {
-			this.$emit('search', e);
-		}
-	},
-	props: ['searchvalue'],
-})
+import './modules/goodItem.js';
+import './modules/cart.js';
+import './modules/search.js';
 
 const vue = new Vue ({
 	el: '#main',
@@ -47,7 +10,7 @@ const vue = new Vue ({
 		search: [],
 		goods: [],
 		filteredGoods: [],
-		cart: []
+		cart: [],
 	},
 	methods: {
 		searchHandler(e) {
@@ -166,7 +129,7 @@ const vue = new Vue ({
 		getSummInCart: function(){
 			if (this.cart) {
 				const totalSumm = this.cart.reduce((partial_sum, {price}) => partial_sum + price, 0); //для подсчета суммы в массиве объектов
-				return totalSumm;
+				console.log(totalSumm);
 			}else{
 				return 0;
 			}	

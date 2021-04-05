@@ -25,7 +25,7 @@
                 </ul>
             </div>
         </header>
-        <cart v-on:remove="removeFromCartHandler" >
+        <cart v-on:remove="removeFromCartHandler" v-bind:commonvalue="getSummInCart" >
             <goods-item 
               v-for="good in cart" 
               v-bind:title="good.title" 
@@ -33,7 +33,6 @@
               v-bind:id="good.id" 
             />
         </cart>
-
         <main class="container">
             <h1 class="visibility">THE BRAND OF luxerious fashion</h1>
             <div class="right-menu">
@@ -204,6 +203,7 @@
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="js/products_vue.js"></script>
+    <!-- <script src="src/js/products_vue.js"></script> -->
+    <script src="dist/build.js"></script>
 </body>
 </html>
