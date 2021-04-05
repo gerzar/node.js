@@ -9,7 +9,7 @@ app.use(express.static('.'));
 app.use(bodyParser.json());
 
 app.get('/catalogData', (req, res) => {
-    fs.readFile('js/products.json', 'utf8', (err, data) => {
+    fs.readFile('src/js/products.json', 'utf8', (err, data) => {
       if(!err) {
           res.setHeader('Content-Type', 'Application/json');
           res.end(data);
@@ -22,7 +22,7 @@ app.get('/catalogData', (req, res) => {
 });
 
 app.get('/cart', (req, res) => {
-  fs.readFile('js/cart.json', 'utf-8', (err, data) => {
+  fs.readFile('src/js/cart.json', 'utf-8', (err, data) => {
       if(!err) {
           res.setHeader('Content-Type', 'Application/json');
           console.log(data);
@@ -37,14 +37,14 @@ app.get('/cart', (req, res) => {
 
 
 app.post('/cart', bodyParser.json(), (req, res) => {
-  fs.readFile('js/cart.json', 'utf-8', (err, data) => {
+  fs.readFile('src/js/cart.json', 'utf-8', (err, data) => {
      if(!err) {
          const goods = JSON.parse(data);
 
          goods.push(req.body);
          console.log(req.body);
 
-         fs.writeFile('js/cart.json', JSON.stringify(goods), (err) => {
+         fs.writeFile('src/js/cart.json', JSON.stringify(goods), (err) => {
               if(!err) {
                   res.end();
               }  else {
@@ -62,13 +62,13 @@ app.post('/cart', bodyParser.json(), (req, res) => {
 
 
 app.delete('/cart', bodyParser.json(), (req, res) => {
-  fs.readFile('js/cart.json', 'utf-8', (err, data) => {
+  fs.readFile('src/js/cart.json', 'utf-8', (err, data) => {
     if(!err) {
       const cart = JSON.parse(data);
       const id = req.body.id;
       const goodIndex = cart.findIndex((item) => item.id == id);
       cart.splice(goodIndex, 1);
-      fs.writeFile('js/cart.json', JSON.stringify(cart), (err) => {
+      fs.writeFile('src/js/cart.json', JSON.stringify(cart), (err) => {
         if(!err) {
             res.end();
         }  else {
