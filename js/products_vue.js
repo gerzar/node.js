@@ -11,6 +11,7 @@ Vue.component('cart', { // создание компонента корзины
 		<p class="close-button" @click="openCartHandler">x</p>
 	  	<div v-if="isVisibleCart" v-on:click="removeHandler">
 		<slot></slot>
+		<p><b>Итого: </b> {{commonvalue}}</p>
 	  </div>
 	</div>`,
 	data() { // данные компонента (Обязательно в виде метода!)
@@ -18,6 +19,7 @@ Vue.component('cart', { // создание компонента корзины
 		isVisibleCart: false
 	  }
 	},
+	props: ['commonvalue'],
 	methods: {
 	  openCartHandler() {
 		this.isVisibleCart = !this.isVisibleCart;
@@ -25,6 +27,7 @@ Vue.component('cart', { // создание компонента корзины
 	  removeHandler(e) {
 		this.$emit('remove', e) // Генерируем пользовательское событие
 	  },
+
 	}
 })
 
@@ -44,14 +47,9 @@ const vue = new Vue ({
 		search: [],
 		goods: [],
 		filteredGoods: [],
-		// cart: JSON.parse(localStorage.getItem('cart')),
 		cart: []
-		// isCartShow: false
 	},
 	methods: {
-		getCartArray() {
-			this.cart = 123;
-		},
 		searchHandler(e) {
 			if(e.data == null){
 				this.search.splice(-1);
@@ -68,7 +66,7 @@ const vue = new Vue ({
 			const regexp = new RegExp(searchStr, 'gi');
 			this.filteredGoods = this.goods.filter((good) => regexp.test(good.title));
 		},
-        fetch(error, success, url_request) {
+        fetch(error, success) {
             let xhr;
             if(window.XMLHttpRequest) {
                 xhr = new XMLHttpRequest();
@@ -84,33 +82,45 @@ const vue = new Vue ({
                 }
             }
 
-            xhr.open('GET', url_request, true);
+            xhr.open('GET', API_URL, true);
             xhr.send();
         },
-        fetchPromise(url_request_promise) {
+        fetchPromise() {
             return new Promise((resolve, reject) => {
-                this.fetch(reject, resolve, url_request_promise)
+                this.fetch(reject, resolve)
             })
         },
 		addToCart(element){
 			const itemIndex = element.target.dataset.index;
 			const cartItem = this.filteredGoods[itemIndex];
 			if (this.cart) {
-				cartItem.id = this.cart.length;
+				let maxIdNum = this.cart.reduce((maxId, item) => Math.max(maxId, item.id), 0);
+				cartItem.id = maxIdNum + 1;
 			}else{
 				cartItem.id = 0;
 				this.cart = [];
 			} 
+			fetch('/cart', {
+				method: 'POST',
+				headers: {
+				  'Content-Type': 'application/json'
+				}, 
+				body: JSON.stringify(cartItem)
+			})
 			this.cart.push(cartItem);
-			
-			localStorage.setItem('cart', JSON.stringify(this.cart) );
 		},
 		removeFromCartHandler(e) {
 			console.log(e)
 			const id = e.target.closest('.goods-item').dataset.id;
 			const goodIndex = this.cart.findIndex((item) => item.id == id);
-	  
-			this.cart.splice(goodIndex - 1, 1);
+			fetch('/cart', {
+				method: 'DELETE',
+				headers: {
+				  'Content-Type': 'application/json'
+				}, 
+				body: JSON.stringify({id: id})
+			})
+			this.cart.splice(goodIndex, 1);
 		},
 		makePOSTRequest(url, data, callback) {
 			let xhr;
@@ -132,16 +142,6 @@ const vue = new Vue ({
 		
 			xhr.send(data);
 		}
-		
-		// removeFromCart(element){
-		// 	const cartItemIndex = element.target.dataset.index;
-		// 	const indexInCart = this.cart.findIndex(i => i.id == cartItemIndex); //поиск по объекту меняешь id на любое название и вперед
-		// 	this.cart.splice(indexInCart, 1);
-		// 	localStorage.setItem('cart', JSON.stringify(this.cart) );
-		// },
-		// showCart(){
-		// 	this.isCartShow = !this.isCartShow;
-		// }
 	},
     mounted: function() {
         this.fetchPromise('/catalogData')
@@ -153,14 +153,14 @@ const vue = new Vue ({
             console.log(err);
         })
 
-		this.fetchPromise('/addToCart')
-        .then(data => {
-            this.cart = data;
-        })
-        .catch(err =>{
-            console.log(err);
-        })
-
+		fetch('/cart')
+		.then(response => response.json())
+		.then(data => {
+		this.cart = data;
+		})
+		.catch(err => {
+		console.log(err);
+		}) 
     },
 	computed: {
 		getSummInCart: function(){
